@@ -6,6 +6,7 @@
   "module": "build/rete.esm.js",
   "types": "types/index.d.ts",
   "scripts": {
+    "install": "npm run build",
     "build": "rete --build rete.config.js",
     "build:dev": "rete --build rete.config.js --watch",
     "prepublishOnly": "npm run lint && npm run build",
@@ -18,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/retejs/rete.git"
+    "url": "git+https://github.com/laferrera/rete.git"
   },
   "keywords": [
     "dataflow",

@@ -230,8 +230,19 @@ export class Engine extends Context<EventsTypes> {
         this.forwarded = new Set();
 
         await this.processStartNode(startId);
-        // await this.processUnreachable();
-
+    
         return this.processDone()?'success':'aborted';
+    }
+
+    async processAll<T extends unknown[]>(data: Data, ...args: T) {
+        if (!this.processStart()) return;
+        if (!this.validate(data)) return;
+
+        this.data = this.copy(data);
+        this.args = args;
+        this.forwarded = new Set();
+        
+        await this.processUnreachable();
+        return this.processDone() ? 'success' : 'aborted';
     }
 }
