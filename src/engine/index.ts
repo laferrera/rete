@@ -230,7 +230,7 @@ export class Engine extends Context<EventsTypes> {
         this.forwarded = new Set();
 
         await this.processStartNode(startId);
-        await this.processUnreachable();
+        // await this.processUnreachable();
 
         return this.processDone()?'success':'aborted';
     }
