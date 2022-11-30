@@ -1,5 +1,5 @@
 {
-  "extends": ["./node_modules/rete-cli/.eslintrc", "plugin:@typescript-eslint/recommended"],
+  "extends": ["./.rete_cli_eslintrc", "plugin:@typescript-eslint/recommended"],
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint"],
   "parserOptions": {
