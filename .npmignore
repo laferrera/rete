@@ -5,5 +5,4 @@ node_modules
 .scannerwork
 coverage
 .nyc_output
-src
 test
