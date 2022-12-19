@@ -88,7 +88,7 @@ export class Zoom {
         e.preventDefault();
 
         const rect = this.el.getBoundingClientRect();
-        const delta = 4 * this.intensity;
+        const delta = 2 * this.intensity;
 
         const ox = (rect.left - e.clientX) * delta;
         const oy = (rect.top - e.clientY) * delta;

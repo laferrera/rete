@@ -31,16 +31,17 @@ export class EditorView extends Emitter<EventsTypes> {
         emitter.on('destroy', () => this.nodes.forEach(view => view.destroy()));
 
         this.on('nodetranslated', this.updateConnections.bind(this));
-        this.on('rendersocket', ({ socket }) => {
-            const connections = Array.from(this.connections.entries())
-            const relatedConnections = connections.filter(([connection]) => {
-                const { input, output } = connection
+        // TODO, why do we need this for  fromJSON()?
+        // this.on('rendersocket', ({ socket }) => {
+        //     const connections = Array.from(this.connections.entries())
+        //     const relatedConnections = connections.filter(([connection]) => {
+        //         const { input, output } = connection
 
-                return [input.socket, output.socket].includes(socket)
-            })
+        //         return [input.socket, output.socket].includes(socket)
+        //     })
 
-            relatedConnections.forEach(([_, view]) => requestAnimationFrame(() => view.update()))
-        })
+        //     relatedConnections.forEach(([_, view]) => requestAnimationFrame(() => view.update()))
+        // })
 
         this.area = new Area(container, this);
         this.container.appendChild(this.area.el);
